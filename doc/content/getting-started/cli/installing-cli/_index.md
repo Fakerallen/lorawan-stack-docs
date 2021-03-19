@@ -61,6 +61,15 @@ For a standard deployment on `thethings.example.com`, all you need is:
 $ ttn-lw-cli use thethings.example.com [--fetch-ca] [--user] [--overwrite]
 ```
 
+{{< warning >}} If using an `au1` or `nam1` cluster, you must manually update the Identity Server endpoints, as there is no `au1` or `nam1` Identity Server. Use the `eu1` endpoints by setting the following in your configuration file:
+
+```
+oauth-server-address: 'https://eu1.cloud.thethings.(industries/network)/oauth'
+identity-server-grpc-address: 'https://eu1.cloud.thethings.(industries/network):8884'
+```
+
+{{</ warning >}}
+
 {{< note >}} On Windows, use `ttn-lw-cli.exe` instead of `ttn-lw-cli`. {{</ note >}}
 
 This will generate and save the required CLI config file. By default, the file is saved on the current directory, use the `--user` to save it under the user config directory.
@@ -87,6 +96,15 @@ device-claiming-server-grpc-address: 'thethings.example.com:8884'
 device-template-converter-grpc-address: 'thethings.example.com:8884'
 qr-code-generator-grpc-address: 'thethings.example.com:8884'
 ```
+
+{{< warning >}} If using an `au1` or `nam1` cluster, you must use the `eu1` Identity Server endpoints by setting the following in your configuration file:
+
+```
+oauth-server-address: 'https://eu1.cloud.thethings.(industries/network)/oauth'
+identity-server-grpc-address: 'https://eu1.cloud.thethings.(industries/network):8884'
+```
+
+{{</ warning >}}
 
 If you are using an `https` port other than `443`, you need to specify that port, e.g.:
 
