@@ -68,6 +68,8 @@ config/
     └── ttn-lw-stack-docker.yml    # configuration file for {{% tts %}}
 ```
 
+Be sure to configure `docker-compose.yml` and `ttn-lw-stack-docker.yml` for your custom certificates, as shown in [using custom certificates](#using-custom-certificates).
+
 ## Custom Certificate Authority
 
 To use TLS on a local or offline deployment, you can use your own Certificate Authority. In order to set that up, you can use `cfssl`, CloudFlare's PKI/TLS toolkit. The `cfssl` installation instructions can be found [here](https://github.com/cloudflare/cfssl#installation).
@@ -120,3 +122,5 @@ config/
 └── stack/
     └── ttn-lw-stack-docker.yml    # configuration file for {{% tts %}}
 ```
+
+Be sure to configure `docker-compose.yml` and `ttn-lw-stack-docker.yml` for your custom certificates, as shown in [using custom certificates](#using-custom-certificates).

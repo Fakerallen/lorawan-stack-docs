@@ -6,7 +6,7 @@ weight: 2
 
 This guide shows an example of configuring {{% tts %}} using configuration files, with an example domain `thethings.example.com` and TLS certificates from Let's Encrypt.
 
-{{< note >}} If configuring {{% tts %}} as `localhost` on a machine with no public IP or DNS address, see the [Localhost](#running-the-things-stack-as-localhost) section. {{</ note >}}
+{{< note >}} If configuring {{% tts %}} as `localhost` on a machine with no public IP or DNS address, see the [Localhost](#running-the-things-stackas-localhost) section. {{</ note >}}
 
 ## Configuration Files
 
@@ -213,6 +213,10 @@ If you configure your `is.oauth.ui.canonical-url` as `localhost`, this causes **
 The best solution is to configure and use a static IP address for your machine on your local network so that redirects from your machine, from the Docker container, or from anywhere inside your local network, all resolve at the same place, on your machine. 
 
 Follow instructions [here](https://uk.pcmag.com/news/124250/how-to-set-up-a-static-ip-address) for configuring a static IP address on your computer. Use that IP address as your server address, i.e replace `thethings.example.com` with that IP address. You may also generate a self-signed certificate for that IP address by following instructions in the [Certificates]({{< relref "certificates" >}}) section.
+
+{{< note >}}
+ACME will not work on `localhost`, so you must either generate custom certificates for your IP address as shown in the [Custom Certificate Authority](({{< relref "certificates#custom-certificate-authority" >}})) instructions, or use `http` (unsecure) in your configuration.
+{{</ note >}}
 
 This will still allow you to see {{% tts %}} Console by entering `localhost` or your local IP address in your browser. It will also allow you to connect to {{% tts %}} from any machine inside your local network.
 
